@@ -11,6 +11,35 @@
 <body class="bg-[#FFF3E0] min-h-screen font-sans antialiased">
     <!-- ================= FASE 7: DASHBOARD SISWA (Mula-mula disembunyikan) ================= -->
     <div id="dashboardSiswa" class="hidden min-h-screen bg-[#FFF3E0] w-full p-4 md:p-8 space-y-6">
+        <button onclick="mulaiKuisSpesifik('matematika')" class="w-full text-left space-y-2 bg-orange-50/70 p-4 rounded-2xl border-2 border-orange-100 hover:border-[#F4A261] hover:bg-orange-100/50 transition-all block group">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🦧 Misi Hitung Otan (Matematika) ➔</span>
+                            <span class="text-orange-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">40% Selesai</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
+                            <div class="bg-[#F4A261] h-full rounded-full" style="width: 40%"></div>
+                        </div>
+                    </button>
+
+                    <button onclick="mulaiKuisSpesifik('bahasa')" class="w-full text-left space-y-2 bg-yellow-50/70 p-4 rounded-2xl border-2 border-yellow-100 hover:border-amber-400 hover:bg-yellow-100/50 transition-all block group">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🦜 Dongeng Kreatif Dewi (Bahasa Indonesia) ➔</span>
+                            <span class="text-amber-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">75% Selesai</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
+                            <div class="bg-amber-400 h-full rounded-full" style="width: 75%"></div>
+                        </div>
+                    </button>
+
+                    <button onclick="mulaiKuisSpesifik('sains')" class="w-full text-left space-y-2 bg-blue-50/70 p-4 rounded-2xl border-2 border-blue-100 hover:border-[#457B9D] hover:bg-blue-100/50 transition-all block group">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🐘 Lab Eksperimen Gaja (Sains / IPA) ➔</span>
+                            <span class="text-blue-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">10% Selesai</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
+                            <div class="bg-[#457B9D] h-full rounded-full" style="width: 10%"></div>
+                        </div>
+                    </button>
         
         <!-- TOP BAR: Status Gamifikasi Anak -->
         <header class="max-w-6xl mx-auto bg-white rounded-3xl p-6 shadow-md flex flex-col md:flex-row justify-between items-center gap-4 border-2 border-[#2D6A4F]">
@@ -613,18 +642,20 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Usia (Tahun)</label>
-                        <input type="number" id="regUsia" min="6" max="12" placeholder="6-12" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-medium text-sm">
+                        <input type="number" id="regUsia" min="3" max="12" placeholder="3-12" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-medium text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Kelas SD</label>
-                        <select id="regKelas" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-bold text-sm bg-white text-gray-700">
-                            <option value="1">Kelas 1</option>
-                            <option value="2">Kelas 2</option>
-                            <option value="3">Kelas 3</option>
-                            <option value="4">Kelas 4</option>
-                            <option value="5">Kelas 5</option>
-                            <option value="6">Kelas 6</option>
-                        </select>
+                    <select id="regKelas" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-bold text-sm bg-white text-gray-700">
+                        <option value="Preschool">Preschool (PAUD)</option>
+                        <option value="TK">Taman Kanak-Kanak (TK)</option>
+                        <option value="1">Kelas 1 SD</option>
+                        <option value="2">Kelas 2 SD</option>
+                        <option value="3">Kelas 3 SD</option>
+                        <option value="4">Kelas 4 SD</option>
+                        <option value="5">Kelas 5 SD</option>
+                        <option value="6">Kelas 6 SD</option>
+                    </select>
                     </div>
                 </div>
                 <div>
