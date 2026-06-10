@@ -4,46 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BelajarAja - Belajar Seru, Prestasi Keren!</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#FFF3E0] min-h-screen font-sans antialiased">
-    <!-- ================= FASE 7: DASHBOARD SISWA (Mula-mula disembunyikan) ================= -->
+
     <div id="dashboardSiswa" class="hidden min-h-screen bg-[#FFF3E0] w-full p-4 md:p-8 space-y-6">
-        <button onclick="mulaiKuisSpesifik('matematika')" class="w-full text-left space-y-2 bg-orange-50/70 p-4 rounded-2xl border-2 border-orange-100 hover:border-[#F4A261] hover:bg-orange-100/50 transition-all block group">
-                        <div class="flex justify-between items-center font-bold">
-                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🦧 Misi Hitung Otan (Matematika) ➔</span>
-                            <span class="text-orange-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">40% Selesai</span>
-                        </div>
-                        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
-                            <div class="bg-[#F4A261] h-full rounded-full" style="width: 40%"></div>
-                        </div>
-                    </button>
-
-                    <button onclick="mulaiKuisSpesifik('bahasa')" class="w-full text-left space-y-2 bg-yellow-50/70 p-4 rounded-2xl border-2 border-yellow-100 hover:border-amber-400 hover:bg-yellow-100/50 transition-all block group">
-                        <div class="flex justify-between items-center font-bold">
-                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🦜 Dongeng Kreatif Dewi (Bahasa Indonesia) ➔</span>
-                            <span class="text-amber-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">75% Selesai</span>
-                        </div>
-                        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
-                            <div class="bg-amber-400 h-full rounded-full" style="width: 75%"></div>
-                        </div>
-                    </button>
-
-                    <button onclick="mulaiKuisSpesifik('sains')" class="w-full text-left space-y-2 bg-blue-50/70 p-4 rounded-2xl border-2 border-blue-100 hover:border-[#457B9D] hover:bg-blue-100/50 transition-all block group">
-                        <div class="flex justify-between items-center font-bold">
-                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🐘 Lab Eksperimen Gaja (Sains / IPA) ➔</span>
-                            <span class="text-blue-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">10% Selesai</span>
-                        </div>
-                        <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
-                            <div class="bg-[#457B9D] h-full rounded-full" style="width: 10%"></div>
-                        </div>
-                    </button>
         
-        <!-- TOP BAR: Status Gamifikasi Anak -->
         <header class="max-w-6xl mx-auto bg-white rounded-3xl p-6 shadow-md flex flex-col md:flex-row justify-between items-center gap-4 border-2 border-[#2D6A4F]">
-            <!-- Profil Singkat & Tombol Keluar -->
             <div class="flex items-center space-x-4">
                 <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center text-3xl border-2 border-[#2D6A4F]">
                     👦
@@ -54,9 +22,7 @@
                 </div>
             </div>
 
-            <!-- Panel Koin & Level Pulau -->
             <div class="flex items-center space-x-4 w-full md:w-auto justify-center">
-                <!-- Status Koin Nusantara -->
                 <div class="bg-amber-50 border-2 border-[#F4A261] px-5 py-2 rounded-2xl flex items-center space-x-2 shadow-sm">
                     <span class="text-2xl animate-pulse">🪙</span>
                     <div>
@@ -64,7 +30,6 @@
                         <div class="text-lg font-black text-amber-900" id="dashKoin">120</div>
                     </div>
                 </div>
-                <!-- Status Level Pulau -->
                 <div class="bg-blue-50 border-2 border-[#457B9D] px-5 py-2 rounded-2xl flex items-center space-x-2 shadow-sm">
                     <span class="text-2xl">🏝️</span>
                     <div>
@@ -72,87 +37,81 @@
                         <div class="text-base font-black text-blue-900" id="dashLevel">Lvl 1: Jawa</div>
                     </div>
                 </div>
-                <!-- Tombol Keluar Sederhana -->
+                <button id="btnKeRuangOrtu" class="bg-blue-50 border-2 border-[#457B9D] hover:bg-blue-100 px-4 py-2 rounded-2xl flex items-center space-x-2 shadow-sm transition-all duration-200" title="Masuk ke Ruang Orang Tua">
+                    <span class="text-xl">🧓</span>
+                    <span class="text-xs font-black text-blue-700 uppercase hidden sm:inline">Menu Orang Tua</span>
+                </button>
                 <button id="btnKeluar" class="bg-red-50 border-2 border-[#E63946] hover:bg-red-100 px-4 py-2 rounded-2xl flex items-center space-x-2 shadow-sm transition-all duration-200 group" title="Keluar dari Pulau Belajar">
-    <span class="text-xl group-hover:scale-110 transition-transform">🚪</span>
-    <span class="text-xs font-black text-red-700 uppercase hidden sm:inline">Keluar</span>
-</button>
+                    <span class="text-xl group-hover:scale-110 transition-transform">🚪</span>
+                    <span class="text-xs font-black text-red-700 uppercase hidden sm:inline">Keluar</span>
+                </button>
             </div>
         </header>
 
-        <!-- KONTEN UTAMA DASHBOARD -->
         <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            <!-- Kolom Kiri: Progress Map Mapel (2 Kolom di Desktop) -->
             <div class="lg:col-span-2 space-y-6">
                 <div class="bg-white rounded-[32px] p-6 md:p-8 shadow-md space-y-6">
                     <h3 class="text-2xl font-black text-[#2D6A4F] flex items-center gap-2">
                         <span>🗺️</span> Peta Misi Belajarmu
                     </h3>
                     
-                    <!-- Progress Item 1: Matematika -->
-                    <div class="space-y-2 bg-orange-50/50 p-4 rounded-2xl border border-orange-100">
+                    <button onclick="mulaiKuisSpesifik('matematika')" class="w-full text-left space-y-2 bg-orange-50/70 p-4 rounded-2xl border-2 border-orange-100 hover:border-[#F4A261] hover:bg-orange-100/50 transition-all block group">
                         <div class="flex justify-between items-center font-bold">
-                            <span class="text-[#2D6A4F] text-base">🦧 Misi Hitung Otan (Matematika)</span>
-                            <span class="text-orange-600 text-sm">40% Selesai</span>
+                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🦧 Misi Hitung Otan (Matematika) ➔</span>
+                            <span class="text-orange-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">40% Selesai</span>
                         </div>
                         <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
                             <div class="bg-[#F4A261] h-full rounded-full transition-all duration-500" style="width: 40%"></div>
                         </div>
-                    </div>
+                    </button>
 
-                    <!-- Progress Item 2: Bahasa Indonesia -->
-                    <div class="space-y-2 bg-yellow-50/50 p-4 rounded-2xl border border-yellow-100">
+                    <button onclick="mulaiKuisSpesifik('bahasa')" class="w-full text-left space-y-2 bg-yellow-50/70 p-4 rounded-2xl border-2 border-yellow-100 hover:border-amber-400 hover:bg-yellow-100/50 transition-all block group">
                         <div class="flex justify-between items-center font-bold">
-                            <span class="text-[#2D6A4F] text-base">🦜 Dongeng Kreatif Dewi (Bahasa Indonesia)</span>
-                            <span class="text-amber-600 text-sm">75% Selesai</span>
+                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🦜 Dongeng Kreatif Dewi (Bahasa Indonesia) ➔</span>
+                            <span class="text-amber-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">75% Selesai</span>
                         </div>
                         <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
                             <div class="bg-amber-400 h-full rounded-full transition-all duration-500" style="width: 75%"></div>
                         </div>
-                    </div>
+                    </button>
 
-                    <!-- Progress Item 3: IPA -->
-                    <div class="space-y-2 bg-blue-50/50 p-4 rounded-2xl border border-blue-100">
+                    <button onclick="mulaiKuisSpesifik('sains')" class="w-full text-left space-y-2 bg-blue-50/70 p-4 rounded-2xl border-2 border-blue-100 hover:border-[#457B9D] hover:bg-blue-100/50 transition-all block group">
                         <div class="flex justify-between items-center font-bold">
-                            <span class="text-[#2D6A4F] text-base">🐘 Lab Eksperimen Gaja (Sains / IPA)</span>
-                            <span class="text-blue-600 text-sm">10% Selesai</span>
+                            <span class="text-[#2D6A4F] text-base group-hover:translate-x-1 transition-transform">🐘 Lab Eksperimen Gaja (Sains / IPA) ➔</span>
+                            <span class="text-blue-600 text-sm bg-white px-2 py-0.5 rounded-full shadow-sm">10% Selesai</span>
                         </div>
                         <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
                             <div class="bg-[#457B9D] h-full rounded-full transition-all duration-500" style="width: 10%"></div>
                         </div>
-                    </div>
+                    </button>
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Aksi & Misi Harian -->
             <div class="space-y-6">
-                <!-- Kartu Lanjut Belajar -->
                 <div class="bg-[#2D6A4F] text-white rounded-[32px] p-6 shadow-md border-4 border-[#F4A261] space-y-4 relative overflow-hidden group">
                     <div class="absolute -right-6 -bottom-6 text-8xl opacity-10 group-hover:scale-110 transition-transform select-none">🚀</div>
                     <div class="bg-[#F4A261] text-gray-900 text-xs font-black px-3 py-1 rounded-full inline-block uppercase">
                         Rekomendasi Komo
                     </div>
                     <h4 class="text-xl font-black">Lanjutkan Petualangan!</h4>
-                    <p class="text-sm text-emerald-100 font-medium">Kamu terakhir kali belajar penjumlahan bersama Otan. Yuk tuntaskan!</p>
+                    <p class="text-sm text-emerald-100 font-medium">Kamu terakhir kali belajar pengenalan logika bersama Otan. Yuk tuntaskan!</p>
                     <button id="btnMulaiTantangan" class="w-full bg-[#E63946] hover:bg-[#c92a38] text-white font-black py-3 rounded-xl shadow-md border-b-4 border-[#b11e2b] transition-all text-center block text-sm">
                         Gas Belajar Sekarang! ➔
                     </button>
                 </div>
 
-                <!-- Kartu Tantangan Hari Ini -->
                 <div class="bg-white rounded-[32px] p-6 shadow-md border-2 border-dashed border-gray-300 space-y-4">
                     <div class="flex items-center space-x-2">
                         <span class="text-2xl">⚡</span>
                         <h4 class="text-lg font-black text-[#2D6A4F]">Tantangan Hari Ini</h4>
                     </div>
                     <div class="flex items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-100">
-                        <span class="text-xs font-bold text-gray-600">Selesaikan 5 Soal Benar</span>
-                        <span class="text-xs font-black text-[#E63946] bg-red-50 px-2 py-1 rounded-md">+50 Koin</span>
+                        <span class="text-xs font-bold text-gray-600">Selesaikan 3 Soal Benar</span>
+                        <span class="text-xs font-black text-[#E63946] bg-red-50 px-2 py-1 rounded-md">+30 Koin</span>
                     </div>
                 </div>
-            </div>
-<!-- ================= FASE 9: KOLEKSI BADGE BATIK ================= -->
+
                 <div class="bg-white rounded-[32px] p-6 shadow-md border-2 border-gray-100 space-y-4">
                     <div class="flex items-center space-x-2">
                         <span class="text-2xl">🏆</span>
@@ -160,32 +119,65 @@
                     </div>
                     
                     <div class="grid grid-cols-3 gap-3 text-center">
-                        <!-- Badge 1: Otomatis Terbuka -->
                         <div class="p-2 bg-emerald-50 rounded-xl border border-emerald-200">
                             <div class="text-3xl filter grayscale-0" id="badgeSatuIcon">👑</div>
                             <div class="text-[10px] font-black text-[#2D6A4F] mt-1">Pemula Hebat</div>
                         </div>
                         
-                        <!-- Badge 2: Dikunci, Terbuka jika Koin >= 140 -->
                         <div class="p-2 bg-gray-50 rounded-xl border border-gray-200 transition-all" id="boxBadgeBatik">
                             <div class="text-3xl filter grayscale opacity-40 transition-all" id="badgeBatikIcon">🪘</div>
                             <div class="text-[10px] font-black text-gray-400 mt-1" id="badgeBatikTeks">Batik Parang</div>
                         </div>
 
-                        <!-- Badge 3: Misteri -->
                         <div class="p-2 bg-gray-50 rounded-xl border border-gray-150">
                             <div class="text-3xl filter grayscale opacity-40">🔒</div>
                             <div class="text-[10px] font-black text-gray-400 mt-1">???</div>
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-white rounded-[32px] p-6 shadow-md border-2 border-gray-100 space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-2xl">🏪</span>
+                        <h4 class="text-lg font-black text-[#2D6A4F]">Toko Hadiah Pulau</h4>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-2xl border border-gray-100">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-3xl">⛵</span>
+                                <div>
+                                    <div class="text-xs font-black text-gray-700">Perahu Phinisi</div>
+                                    <div class="text-[10px] font-bold text-amber-600">🪙 130 Koin</div>
+                                </div>
+                            </div>
+                            <button id="btnBeliPhinisi" onclick="beliItemPulau('Phinisi', 130)" class="bg-[#2D6A4F] hover:bg-[#1B4332] text-white text-[10px] font-black px-3 py-1.5 rounded-xl shadow-sm transition-all">
+                                Beli
+                            </button>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-2xl border border-gray-100">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-3xl">🏠</span>
+                                <div>
+                                    <div class="text-xs font-black text-gray-700">Rumah Gadang</div>
+                                    <div class="text-[10px] font-bold text-amber-600">🪙 150 Koin</div>
+                                </div>
+                            </div>
+                            <button id="btnBeliGadang" onclick="beliItemPulau('Gadang', 150)" class="bg-[#2D6A4F] hover:bg-[#1B4332] text-white text-[10px] font-black px-3 py-1.5 rounded-xl shadow-sm transition-all">
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </main>
     </div>
-<!-- ================= FASE 8: HALAMAN SOAL INTERAKTIF (Mula-mula disembunyikan) ================= -->
+
     <div id="areaKuis" class="hidden min-h-screen bg-[#FFF3E0] w-full p-4 md:p-8 flex flex-col items-center justify-center">
         <div class="w-full max-w-4xl bg-white rounded-[40px] p-6 md:p-10 shadow-2xl border-4 border-[#2D6A4F] relative overflow-hidden">
             
-            <!-- Header Kuis: Progress Soal & Tombol Kembali -->
             <div class="flex justify-between items-center mb-8 border-b-2 border-gray-100 pb-4">
                 <button id="btnKembaliKeDash" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-black px-4 py-2 rounded-full text-sm transition-all">
                     ⬅ Kembali ke Peta
@@ -195,10 +187,7 @@
                 </div>
             </div>
 
-            <!-- Tata Letak Utama: Maskot (Kiri) & Soal (Kanan) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                
-                <!-- Sisi Kiri: Teman Belajar (Otan) -->
                 <div class="text-center bg-orange-50 p-6 rounded-3xl border-2 border-orange-200 relative">
                     <div class="text-8xl mb-2 animate-bounce" style="animation-duration: 3s;">🦧</div>
                     <h4 class="font-black text-orange-800 text-lg">Otan</h4>
@@ -207,78 +196,54 @@
                     </p>
                 </div>
 
-                <!-- Sisi Kanan: Area Pertanyaan (Lebar 2 Kolom) -->
                 <div class="md:col-span-2 space-y-6">
                     <div class="bg-[#FFF3E0] p-8 rounded-3xl text-center border-4 border-dashed border-[#F4A261]">
-                        <span class="text-gray-400 font-black text-sm block uppercase tracking-wider mb-2">Pertanyaan Matematika</span>
-                        <!-- Teks Soal -->
+                        <span class="text-gray-400 font-black text-sm block uppercase tracking-wider mb-2">Pertanyaan</span>
                         <h2 class="text-4xl md:text-5xl font-black text-gray-800" id="teksSoal">
                             15 + 7 = ...
                         </h2>
                     </div>
 
-                    <!-- Pilihan Jawaban (4 Tombol) -->
                     <div class="grid grid-cols-2 gap-4" id="kontainerPilihan">
-                        <!-- Tombol pilihan akan di-generate otomatis via JS, ini contoh strukturnya: -->
-                        <button class="opsi-jawaban bg-white hover:bg-emerald-50 border-2 border-gray-200 hover:border-[#2D6A4F] text-xl font-black p-4 rounded-2xl shadow-sm transition-all text-gray-700" onclick="cekJawaban(22)">22</button>
-                        <button class="opsi-jawaban bg-white hover:bg-emerald-50 border-2 border-gray-200 hover:border-[#2D6A4F] text-xl font-black p-4 rounded-2xl shadow-sm transition-all text-gray-700" onclick="cekJawaban(20)">20</button>
-                        <button class="opsi-jawaban bg-white hover:bg-emerald-50 border-2 border-gray-200 hover:border-[#2D6A4F] text-xl font-black p-4 rounded-2xl shadow-sm transition-all text-gray-700" onclick="cekJawaban(25)">25</button>
-                        <button class="opsi-jawaban bg-white hover:bg-emerald-50 border-2 border-gray-200 hover:border-[#2D6A4F] text-xl font-black p-4 rounded-2xl shadow-sm transition-all text-gray-700" onclick="cekJawaban(18)">18</button>
+                        <button class="opsi-jawaban bg-white border-2 border-gray-200 text-xl font-black p-4 rounded-2xl shadow-sm text-gray-700">22</button>
+                        <button class="opsi-jawaban bg-white border-2 border-gray-200 text-xl font-black p-4 rounded-2xl shadow-sm text-gray-700">20</button>
                     </div>
                 </div>
-
             </div>
 
-            <!-- POP-UP FEEDBACK (Mula-mula disembunyikan lewat class 'hidden') -->
             <div id="popupFeedback" class="hidden absolute inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-start md:justify-center p-6 text-center z-20 transition-all overflow-y-auto scrollbar-thin">
-                <!-- Konten berganti dinamis via JS (Benar/Salah) -->
                 <div id="iconFeedback" class="text-8xl mb-4">🎉</div>
-                <h3 id="judulFeedback" class="text-3xl font-black text-[#2D6A4F] mb-2">Hebat! Jawabanmu Benar!</h3>
+                <h3 id="judulFeedback" class="text-3xl font-black text-[#2D6A4F] mb-2">Hebat!</h3>
                 <p id="pesanFeedback" class="text-gray-600 font-medium max-w-md mb-6">Kamu berhak mendapatkan +10 Koin Nusantara.</p>
                 
-                <!-- Video Penjelasan palsu/placeholder jika salah -->
                 <div id="boxVideoPenjelasan" class="hidden w-full max-w-sm bg-gray-100 p-4 rounded-2xl border border-gray-300 mb-6">
-                    <p class="text-xs font-black text-gray-500 uppercase mb-2">📺 Video Penjelasan Otan</p>
-                    <div class="aspect-video bg-gray-800 rounded-xl flex items-center justify-center text-white text-sm font-bold">
-                        [ Putar Video Cara Hitung: 15 + 7 ]
-                    </div>
+                    <p class="text-xs font-black text-gray-500 uppercase mb-2">📺 Video Penjelasan</p>
+                    <div class="aspect-video bg-gray-800 rounded-xl flex items-center justify-center text-white text-sm font-bold">[ Putar Video ]</div>
                 </div>
 
-                <button id="btnLanjutSoal" class="bg-[#E63946] text-white font-black text-lg py-3 px-8 rounded-full shadow-md hover:scale-105 transition-transform">
+                <button id="btnLanjutSoal" class="bg-[#E63946] text-white font-black text-lg py-3 px-8 rounded-full shadow-md">
                     Lanjut Misi Berikutnya! ➔
                 </button>
             </div>
-
         </div>
     </div>
-    <!-- ================= NAVBAR ================= -->
+
     <nav class="w-full bg-white shadow-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
-        <!-- Logo & Maskot Mini -->
         <div class="flex items-center space-x-2 text-2xl font-black text-[#2D6A4F] tracking-wide cursor-pointer">
             <span class="text-3xl">🦎</span>
             <span>Belajar<span class="text-[#F4A261]">Aja</span></span>
         </div>
-        
-        <!-- Menu Navigasi (Desktop) -->
         <div class="hidden md:flex items-center space-x-8 font-bold text-gray-700">
             <a href="#" class="hover:text-[#2D6A4F] transition-colors">Matematika</a>
             <a href="#" class="hover:text-[#2D6A4F] transition-colors">Bahasa Indonesia</a>
             <a href="#" class="hover:text-[#2D6A4F] transition-colors">IPA</a>
             <a href="#" class="hover:text-[#2D6A4F] transition-colors">Harga</a>
-            <!-- Tombol Masuk dengan Warna Sekunder -->
             <a href="#" class="bg-[#457B9D] text-white px-6 py-2 rounded-full hover:bg-[#345E78] transition-all shadow-md">Masuk</a>
         </div>
-        
-        <!-- Tombol Menu Mobile (Hamburger) -->
-        <button class="md:hidden text-2xl text-[#2D6A4F] focus:outline-none font-bold">
-            ☰
-        </button>
+        <button class="md:hidden text-2xl text-[#2D6A4F] font-bold">☰</button>
     </nav>
 
-    <!-- ================= HERO SECTION ================= -->
     <section class="w-full bg-gradient-to-b from-[#2D6A4F] to-[#40916C] text-white py-16 px-6 md:px-16 flex flex-col md:flex-row items-center justify-between gap-10 rounded-b-[50px] shadow-lg">
-        
-        <!-- Bagian Kiri: Teks Utama & Tombol CTA -->
         <div class="max-w-xl text-center md:text-left space-y-6">
             <span class="inline-block bg-[#F4A261] text-gray-900 text-xs md:text-sm font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow">
                 🇮🇩 Kurikulum Merdeka Belajar
@@ -287,353 +252,167 @@
                 Belajar Seru,<br><span class="text-[#F4A261]">Prestasi Keren!</span>
             </h1>
             <p class="text-lg md:text-xl text-emerald-50 font-medium leading-relaxed">
-                Petualangan belajar interaktif bersama hewan-hewan khas Nusantara yang lucu dan pintar. Khusus anak SD Kelas 1-6!
+                Petualangan belajar interaktif bersama hewan-hewan khas Nusantara yang lucu dan pintar.
             </p>
             <div class="pt-2">
-                <!-- Tombol CTA Utama menggunakan Merah Semangat -->
                 <button class="bg-[#E63946] text-white text-xl font-extrabold py-4 px-10 rounded-full shadow-xl hover:bg-[#c92a38] hover:scale-105 transition-all duration-300 border-b-4 border-[#b11e2b]">
                     Mulai Petualangan Gratis! 🚀
                 </button>
             </div>
         </div>
 
-        <!-- Bagian Kanan: Placeholder Karakter Komo (Komodo) -->
         <div class="w-64 h-64 md:w-85 md:h-85 bg-[#FFF3E0] rounded-full p-8 shadow-2xl flex flex-col items-center justify-center border-8 border-[#F4A261] relative animate-bounce" style="animation-duration: 4s;">
-            <!-- Representasi Komo menggunakan Emoji (Nanti bisa diganti gambar asset asli) -->
             <div class="text-8xl md:text-9xl filter drop-shadow-md">🦎</div>
-            <div class="bg-[#2D6A4F] text-white px-5 py-1.5 rounded-full font-bold text-sm md:text-base shadow-md mt-2">
-                Halo, Aku Komo!
-            </div>
-            <!-- Lencana Status Kepribadian Maskot -->
-            <div class="absolute -top-2 -right-2 bg-[#E63946] text-white font-extrabold text-xs px-3 py-1 rounded-md rotate-12 shadow-md">
-                Guru Bijak 🪵
-            </div>
+            <div class="bg-[#2D6A4F] text-white px-5 py-1.5 rounded-full font-bold text-sm md:text-base shadow-md mt-2">Halo, Aku Komo!</div>
+            <div class="absolute -top-2 -right-2 bg-[#E63946] text-white font-extrabold text-xs px-3 py-1 rounded-md rotate-12 shadow-md">Guru Bijak 🪵</div>
         </div>
-
     </section>
-    <!-- ================= FASE 3: SECTION FITUR & KARAKTER ================= -->
+
     <section class="max-w-6xl mx-auto px-6 py-16 space-y-16">
-        
-        <!-- Judul Atas -->
         <div class="text-center space-y-3">
-            <h2 class="text-3xl md:text-5xl font-black text-[#2D6A4F] tracking-tight">
-                Pilih Petualangan Belajarmu! 🎒
-            </h2>
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto font-medium">
-                Yuk, belajar bareng sahabat hewan asli Indonesia. Mereka siap nemenin kamu jadi anak paling pintar di kelas!
-            </p>
+            <h2 class="text-3xl md:text-5xl font-black text-[#2D6A4F] tracking-tight">Pilih Petualangan Belajarmu! 🎒</h2>
         </div>
-
-        <!-- Grid 3 Kartu Fitur / Mata Pelajaran -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Kartu 1: Matematika (Otan) -->
-            <div class="bg-white rounded-[32px] p-8 shadow-md border-4 border-transparent hover:border-[#F4A261] hover:scale-105 hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col justify-between">
+            <div class="bg-white rounded-[32px] p-8 shadow-md border-4 border-transparent hover:border-[#F4A261] hover:scale-105 transition-all duration-300 group cursor-pointer flex flex-col justify-between">
                 <div>
-                    <!-- Lingkaran Icon Maskot -->
-                    <div class="w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center text-5xl mb-6 shadow-inner group-hover:rotate-12 transition-transform">
-                        🦧
-                    </div>
-                    <h3 class="text-2xl font-black text-[#2D6A4F] mb-2">
-                        Matematika <span class="text-gray-400 text-sm block md:inline font-normal">(Bersama Otan)</span>
-                    </h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">
-                        Berhitung jadi gampang banget! Otan si Orangutan cerdas bakal ngajarin kamu konsep angka lewat mini-game yang seru.
-                    </p>
+                    <div class="w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center text-5xl mb-6">🦧</div>
+                    <h3 class="text-2xl font-black text-[#2D6A4F] mb-2">Matematika</h3>
+                    <p class="text-gray-600 font-medium">Berhitung jadi gampang banget bersama Otan si Orangutan cerdas.</p>
                 </div>
-                <div class="mt-6 flex items-center text-[#F4A261] font-extrabold group-hover:translate-x-2 transition-transform">
-                    Mulai Hitung ➔
-                </div>
+                <div class="mt-6 flex items-center text-[#F4A261] font-extrabold">Mulai Hitung ➔</div>
             </div>
-
-            <!-- Kartu 2: Bahasa Indonesia (Dewi) -->
-            <div class="bg-white rounded-[32px] p-8 shadow-md border-4 border-transparent hover:border-[#F4A261] hover:scale-105 hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col justify-between">
+            <div class="bg-white rounded-[32px] p-8 shadow-md border-4 border-transparent hover:border-[#F4A261] hover:scale-105 transition-all duration-300 group cursor-pointer flex flex-col justify-between">
                 <div>
-                    <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center text-5xl mb-6 shadow-inner group-hover:rotate-12 transition-transform">
-                        🦜
-                    </div>
-                    <h3 class="text-2xl font-black text-[#2D6A4F] mb-2">
-                        Bahasa Indonesia <span class="text-gray-400 text-sm block md:inline font-normal">(Bersama Dewi)</span>
-                    </h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">
-                        Pintar membaca dan bercerita! Dewi si Cendrawasih yang kreatif punya segudang petualangan dongeng Nusantara dong.
-                    </p>
+                    <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center text-5xl mb-6">🦜</div>
+                    <h3 class="text-2xl font-black text-[#2D6A4F] mb-2">Bahasa Indonesia</h3>
+                    <p class="text-gray-600 font-medium">Pintar membaca dan bercerita bersama dongeng Dewi si Cendrawasih.</p>
                 </div>
-                <div class="mt-6 flex items-center text-[#F4A261] font-extrabold group-hover:translate-x-2 transition-transform">
-                    Mulai Membaca ➔
-                </div>
+                <div class="mt-6 flex items-center text-[#F4A261] font-extrabold">Mulai Membaca ➔</div>
             </div>
-
-            <!-- Kartu 3: IPA / Sains (Gaja) -->
-            <div class="bg-white rounded-[32px] p-8 shadow-md border-4 border-transparent hover:border-[#F4A261] hover:scale-105 hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col justify-between">
+            <div class="bg-white rounded-[32px] p-8 shadow-md border-4 border-transparent hover:border-[#F4A261] hover:scale-105 transition-all duration-300 group cursor-pointer flex flex-col justify-between">
                 <div>
-                    <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center text-5xl mb-6 shadow-inner group-hover:rotate-12 transition-transform">
-                        🐘
-                    </div>
-                    <h3 class="text-2xl font-black text-[#2D6A4F] mb-2">
-                        Sains / IPA <span class="text-gray-400 text-sm block md:inline font-normal">(Bersama Gaja)</span>
-                    </h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">
-                        Ayo lakukan eksperimen seru! Gaja si Gajah Sumatera yang kuat siap nemenin kamu mengungkap rahasia alam semesta.
-                    </p>
+                    <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center text-5xl mb-6">🐘</div>
+                    <h3 class="text-2xl font-black text-[#2D6A4F] mb-2">Sains / IPA</h3>
+                    <p class="text-gray-600 font-medium">Ayo lakukan eksperimen alam seru bersama Gaja si Gajah Sumatera.</p>
                 </div>
-                <div class="mt-6 flex items-center text-[#F4A261] font-extrabold group-hover:translate-x-2 transition-transform">
-                    Mulai Eksperimen ➔
-                </div>
+                <div class="mt-6 flex items-center text-[#F4A261] font-extrabold">Mulai Eksperimen ➔</div>
             </div>
-
         </div>
 
-        <!-- ================= SECTION KENAPA BELAJARAJA? (STATISTIK) ================= -->
         <div class="bg-[#2D6A4F] text-white rounded-[40px] p-8 md:p-12 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8 border-4 border-[#F4A261]">
-            
             <div class="max-w-xl text-center lg:text-left space-y-4">
-                <h3 class="text-3xl md:text-4xl font-black">
-                    Kenapa Belajar di <span class="text-[#F4A261]">BelajarAja</span>?
-                </h3>
-                <p class="text-emerald-100 text-base md:text-lg font-medium leading-relaxed">
-                    Kami menggabungkan kurikulum sekolah dengan elemen game (gamifikasi). Anak tidak merasa dipaksa belajar, melainkan merasa seperti sedang menyelesaikan misi petualangan!
-                </p>
+                <h3 class="text-3xl md:text-4xl font-black">Kenapa Belajar di <span class="text-[#F4A261]">BelajarAja</span>?</h3>
+                <p class="text-emerald-100 text-base font-medium leading-relaxed">Kami menggabungkan kurikulum sekolah dengan elemen game (gamifikasi).</p>
             </div>
-
-            <!-- Angka Statistik Dummy -->
             <div class="grid grid-cols-2 gap-6 w-full lg:w-auto">
-                <div class="bg-[#40916C] p-6 rounded-3xl text-center shadow-inner border border-emerald-400/30">
-                    <div class="text-4xl font-black text-[#F4A261]">10.000+</div>
-                    <div class="text-xs md:text-sm font-bold text-emerald-100 mt-1">Anak Hebat Bergabung</div>
-                </div>
-                <div class="bg-[#40916C] p-6 rounded-3xl text-center shadow-inner border border-emerald-400/30">
-                    <div class="text-4xl font-black text-[#F4A261]">98%</div>
-                    <div class="text-xs md:text-sm font-bold text-emerald-100 mt-1">Orang Tua Puas</div>
-                </div>
+                <div class="bg-[#40916C] p-6 rounded-3xl text-center"><div class="text-4xl font-black text-[#F4A261]">10.000+</div><div class="text-xs text-emerald-100 mt-1">Anak Hebat</div></div>
+                <div class="bg-[#40916C] p-6 rounded-3xl text-center"><div class="text-4xl font-black text-[#F4A261]">98%</div><div class="text-xs text-emerald-100 mt-1">Orang Tua Puas</div></div>
             </div>
-
         </div>
     </section>
-<!-- ================= FASE 4: SECTION CARA KERJA (HOW IT WORKS) ================= -->
+
     <section class="w-full bg-[#FFF3E0] py-16 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto space-y-12">
-            
-            <!-- Judul Atas -->
-            <div class="text-center space-y-3">
-                <span class="text-[#E63946] font-extrabold text-sm uppercase tracking-widest bg-red-100 px-4 py-1.5 rounded-full">
-                    Gampang Banget!
-                </span>
-                <h2 class="text-3xl md:text-5xl font-black text-[#2D6A4F]">
-                    4 Langkah Seru Memulai Petualangan 🗺️
-                </h2>
-                <p class="text-gray-600 text-lg max-w-xl mx-auto font-medium">
-                    Hanya butuh 5 menit untuk memulai perjalanan belajarmu yang menyenangkan.
-                </p>
-            </div>
-
-            <!-- Grid 4 Langkah Visual -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-                
-                <!-- Langkah 1 -->
-                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 hover:border-[#2D6A4F] transition-all duration-300 relative group text-center flex flex-col items-center">
-                    <!-- Angka Langkah -->
-                    <div class="absolute -top-5 left-6 bg-[#E63946] text-white w-10 h-10 rounded-full flex items-center justify-center font-black text-lg shadow-md group-hover:scale-110 transition-transform">
-                        1
-                    </div>
-                    <!-- Ilustrasi / Emoji -->
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center text-5xl my-4 group-hover:animate-pulse">
-                        📝
-                    </div>
-                    <h3 class="text-xl font-black text-[#2D6A4F] mb-2">Daftar Akun</h3>
-                    <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                        Orang tua membuatkan akun gratis untuk anak hanya dalam 1 menit.
-                    </p>
-                </div>
-
-                <!-- Langkah 2 -->
-                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 hover:border-[#2D6A4F] transition-all duration-300 relative group text-center flex flex-col items-center">
-                    <div class="absolute -top-5 left-6 bg-[#F4A261] text-white w-10 h-10 rounded-full flex items-center justify-center font-black text-lg shadow-md group-hover:scale-110 transition-transform">
-                        2
-                    </div>
-                    <div class="w-24 h-24 bg-amber-50 rounded-full flex items-center justify-center text-5xl my-4 group-hover:animate-pulse">
-                        🎯
-                    </div>
-                    <h3 class="text-xl font-black text-[#2D6A4F] mb-2">Kuis Singkat</h3>
-                    <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                        Anak menjawab beberapa soal seru agar sistem tahu tingkat kemampuannya.
-                    </p>
-                </div>
-
-                <!-- Langkah 3 -->
-                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 hover:border-[#2D6A4F] transition-all duration-300 relative group text-center flex flex-col items-center">
-                    <div class="absolute -top-5 left-6 bg-[#457B9D] text-white w-10 h-10 rounded-full flex items-center justify-center font-black text-lg shadow-md group-hover:scale-110 transition-transform">
-                        3
-                    </div>
-                    <div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center text-5xl my-4 group-hover:animate-pulse">
-                        🚀
-                    </div>
-                    <h3 class="text-xl font-black text-[#2D6A4F] mb-2">Mulai Belajar</h3>
-                    <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                        Misi petualangan belajar adaptif dimulai bersama karakter hewan pilihanmu!
-                    </p>
-                </div>
-
-                <!-- Langkah 4 -->
-                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 hover:border-[#2D6A4F] transition-all duration-300 relative group text-center flex flex-col items-center">
-                    <div class="absolute -top-5 left-6 bg-[#2D6A4F] text-white w-10 h-10 rounded-full flex items-center justify-center font-black text-lg shadow-md group-hover:scale-110 transition-transform">
-                        4
-                    </div>
-                    <div class="w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center text-5xl my-4 group-hover:animate-pulse">
-                        🏆
-                    </div>
-                    <h3 class="text-xl font-black text-[#2D6A4F] mb-2">Raih Hadiah</h3>
-                    <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                        Kumpulkan Koin Nusantara, kumpulkan badge batik, dan naikin level pulaumu!
-                    </p>
-                </div>
-
+        <div class="max-w-6xl mx-auto space-y-12 text-center">
+            <h2 class="text-3xl md:text-5xl font-black text-[#2D6A4F]">4 Langkah Seru Memulai Petualangan 🗺️</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 text-center"><div class="text-4xl my-4">1️⃣</div><h3 class="text-xl font-black text-[#2D6A4F] mb-2">Daftar Akun</h3></div>
+                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 text-center"><div class="text-4xl my-4">2️⃣</div><h3 class="text-xl font-black text-[#2D6A4F] mb-2">Kuis Singkat</h3></div>
+                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 text-center"><div class="text-4xl my-4">3️⃣</div><h3 class="text-xl font-black text-[#2D6A4F] mb-2">Mulai Belajar</h3></div>
+                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-dashed border-gray-200 text-center"><div class="text-4xl my-4">4️⃣</div><h3 class="text-xl font-black text-[#2D6A4F] mb-2">Raih Hadiah</h3></div>
             </div>
         </div>
     </section>
- <!-- ================= FASE 5: SECTION TESTIMONI ================= -->
+
     <section class="max-w-6xl mx-auto px-6 py-16 space-y-12">
-        <!-- Judul Atas -->
-        <div class="text-center space-y-3">
-            <h2 class="text-3xl md:text-5xl font-black text-[#2D6A4F]">
-                Kata Mereka yang Sudah Mencoba 💬
-            </h2>
-            <p class="text-gray-600 text-lg max-w-xl mx-auto font-medium">
-                Dengarkan cerita langsung dari para orang tua dan guru hebat di Indonesia.
-            </p>
-        </div>
-
-        <!-- Grid 3 Testimoni -->
+        <div class="text-center"><h2 class="text-3xl md:text-5xl font-black text-[#2D6A4F]">Kata Mereka yang Sudah Mencoba 💬</h2></div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Testimoni 1 -->
-            <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-gray-100 flex flex-col justify-between relative">
-                <span class="text-6xl text-emerald-200 absolute top-2 right-6 font-serif select-none">“</span>
-                <p class="text-gray-600 font-medium italic relative z-10 leading-relaxed">
-                    "Dulu anak saya susah banget kalau disuruh belajar Matematika. Sejak main di BelajarAja, dia malah ketagihan ngejar Koin Nusantara bareng Otan!"
-                </p>
-                <div class="mt-6 flex items-center space-x-4 border-t border-gray-100 pt-4">
-                    <div class="w-12 h-12 bg-[#457B9D] rounded-full flex items-center justify-center text-xl text-white font-bold shadow">
-                        👩‍👦
-                    </div>
-                    <div>
-                        <h4 class="font-black text-[#2D6A4F]">Bunda Rini</h4>
-                        <p class="text-xs text-gray-400 font-bold">Orang Tua Murid (Kelas 3 SD)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimoni 2 -->
-            <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-gray-100 flex flex-col justify-between relative">
-                <span class="text-6xl text-emerald-200 absolute top-2 right-6 font-serif select-none">“</span>
-                <p class="text-gray-600 font-medium italic relative z-10 leading-relaxed">
-                    "Materi Kurikulum Merdeka di sini dikemas sangat interaktif. Karakter hewannya bikin anak-anak betah. Sangat direkomendasikan untuk pendamping sekolah."
-                </p>
-                <div class="mt-6 flex items-center space-x-4 border-t border-gray-100 pt-4">
-                    <div class="w-12 h-12 bg-[#F4A261] rounded-full flex items-center justify-center text-xl text-white font-bold shadow">
-                        👩‍🏫
-                    </div>
-                    <div>
-                        <h4 class="font-black text-[#2D6A4F]">Ibu Dewi, S.Pd.</h4>
-                        <p class="text-xs text-gray-400 font-bold">Guru Wali Kelas 2 SD</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimoni 3 -->
-            <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-gray-100 flex flex-col justify-between relative">
-                <span class="text-6xl text-emerald-200 absolute top-2 right-6 font-serif select-none">“</span>
-                <p class="text-gray-600 font-medium italic relative z-10 leading-relaxed">
-                    "Anak saya suka sekali bagian kuis cepat dengan Tari si Tarsius. Fitur reward badge batiknya bikin dia termotivasi belajar mandiri setiap sore."
-                </p>
-                <div class="mt-6 flex items-center space-x-4 border-t border-gray-100 pt-4">
-                    <div class="w-12 h-12 bg-[#E63946] rounded-full flex items-center justify-center text-xl text-white font-bold shadow">
-                        👨‍👦
-                    </div>
-                    <div>
-                        <h4 class="font-black text-[#2D6A4F]">Papa Doni</h4>
-                        <p class="text-xs text-gray-400 font-bold">Orang Tua Murid (Kelas 5 SD)</p>
-                    </div>
-                </div>
-            </div>
-
+            <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-gray-100 font-medium italic"><p>"Sejak main di BelajarAja, anak saya malah ketagihan ngejar Koin Nusantara bareng Otan!"</p><h4 class="font-black text-[#2D6A4F] mt-4">Bunda Rini</h4></div>
+            <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-gray-100 font-medium italic"><p>"Materi Kurikulum Merdeka dikemas sangat interaktif. Sangat direkomendasikan!"</p><h4 class="font-black text-[#2D6A4F] mt-4">Ibu Dewi, S.Pd.</h4></div>
+            <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-gray-100 font-medium italic"><p>"Reward badge batik-nya sukses bikin anak saya termotivasi belajar mandiri."</p><h4 class="font-black text-[#2D6A4F] mt-4">Papa Doni</h4></div>
         </div>
     </section>
 
-    <!-- ================= FASE 5: FOOTER ================= -->
     <footer class="w-full bg-[#2D6A4F] text-white pt-12 pb-6 px-6 md:px-16 rounded-t-[50px] shadow-inner">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-emerald-700">
-            
-            <!-- Kolom 1: Branding -->
             <div class="space-y-4">
-                <div class="flex items-center space-x-2 text-2xl font-black tracking-wide">
-                    <span class="text-3xl">🦎</span>
-                    <span>Belajar<span class="text-[#F4A261]">Aja</span></span>
-                </div>
-                <p class="text-emerald-100 text-sm font-medium leading-relaxed">
-                    Platform edukasi adaptif nomor satu di Indonesia. Mengubah waktu luang anak menjadi petualangan belajar yang penuh prestasi.
-                </p>
+                <div class="flex items-center space-x-2 text-2xl font-black tracking-wide"><span>🦎</span><span>Belajar<span class="text-[#F4A261]">Aja</span></span></div>
+                <p class="text-emerald-100 text-sm">Platform edukasi adaptif nomor satu di Indonesia. Mengubah waktu luang anak menjadi prestasi.</p>
             </div>
-
-            <!-- Kolom 2: Navigasi Cepat -->
             <div class="space-y-3">
                 <h4 class="text-[#F4A261] font-black text-lg">Peta Pulau Belajar</h4>
                 <div class="grid grid-cols-2 gap-2 text-sm text-emerald-100 font-bold">
-                    <a href="#" class="hover:text-white transition-colors">➔ Matematika</a>
-                    <a href="#" class="hover:text-white transition-colors">➔ IPA / Sains</a>
-                    <a href="#" class="hover:text-white transition-colors">➔ Bahasa Indo</a>
-                    <a href="#" class="hover:text-white transition-colors">➔ Cek Harga</a>
+                    <a href="#">➔ Matematika</a><a href="#">➔ IPA / Sains</a><a href="#">➔ Bahasa Indo</a><a href="#">➔ Cek Harga</a>
                 </div>
             </div>
-
-            <!-- Kolom 3: Kontak & Komunitas -->
             <div class="space-y-3">
                 <h4 class="text-[#F4A261] font-black text-lg">Hubungi Komo 💬</h4>
-                <p class="text-sm text-emerald-100 font-medium">Ada pertanyaan atau butuh bantuan? Yuk sapa kami di:</p>
-                <div class="flex space-x-4 text-2xl">
-                    <a href="#" class="hover:scale-110 transition-transform">📸</a>
-                    <a href="#" class="hover:scale-110 transition-transform">📺</a>
-                    <a href="#" class="hover:scale-110 transition-transform">💌</a>
-                </div>
+                <div class="flex space-x-4 text-2xl"><span>📸</span><span>📺</span><span>💌</span></div>
             </div>
-
         </div>
-
-        <!-- Hak Cipta -->
         <div class="max-w-6xl mx-auto pt-6 text-center text-xs md:text-sm text-emerald-200 font-bold">
             &copy; 2026 BelajarAja Indonesia. Dibuat dengan penuh ❤️ untuk anak-anak Nusantara.
         </div>
     </footer>
-<!-- ================= FASE 6: MODAL DAFTAR & LOGIN ================= -->
+
+    <div id="dashboardOrangTua" class="hidden min-h-screen bg-slate-50 w-full p-4 md:p-8 space-y-6 font-sans">
+        <header class="max-w-4xl mx-auto bg-white rounded-3xl p-6 shadow-md flex justify-between items-center border-2 border-[#457B9D]">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl">🧓</div>
+                <div>
+                    <h2 class="text-xl font-black text-[#457B9D]">Ruang Orang Tua BelajarAja</h2>
+                    <p class="text-xs font-bold text-gray-400">Pantau dan Dukung Tumbuh Kembang Belajar Anak</p>
+                </div>
+            </div>
+            <button id="btnKembaliKeAnak" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-black px-4 py-2 rounded-2xl text-xs sm:text-sm transition-all border border-gray-300">
+                👦 Dashboard Anak
+            </button>
+        </header>
+
+        <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 text-center space-y-2">
+                <div class="text-3xl">🪙</div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase">Koin Dikumpulkan</h4>
+                <p class="text-3xl font-black text-amber-600" id="ortuKoinAnak">120</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 text-center space-y-2">
+                <div class="text-3xl">🏝️</div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase">Level Jelajah Pulau</h4>
+                <p class="text-xl font-black text-blue-800" id="ortuLevelAnak">Lvl 1: Jawa</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 text-center space-y-2">
+                <div class="text-3xl">🦎</div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase">Pendamping Utama</h4>
+                <p class="text-base font-black text-emerald-700">Komo & Otan</p>
+            </div>
+
+            <div class="md:col-span-3 bg-white p-6 md:p-8 rounded-[32px] shadow-sm border border-gray-100 space-y-6">
+                <h3 class="text-lg font-black text-gray-800 flex items-center gap-2">📊 Analisis Fokus Belajar Anak</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl"><span class="font-bold text-sm text-gray-700">🦧 Logika Berhitung (Matematika)</span><span class="text-xs font-black bg-orange-100 text-orange-700 px-3 py-1 rounded-full">Sangat Aktif 👍</span></div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl"><span class="font-bold text-sm text-gray-700">🦜 Bahasa & Pola Visual (Bahasa Indonesia)</span><span class="text-xs font-black bg-yellow-100 text-amber-700 px-3 py-1 rounded-full">Cukup Aktif</span></div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl"><span class="font-bold text-sm text-gray-700">🐘 Eksperimen & Detektif Alam (Sains / IPA)</span><span class="text-xs font-black bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Perlu Ditingkatkan</span></div>
+                </div>
+                <div class="bg-blue-50/50 p-4 rounded-2xl border border-blue-100 text-sm text-blue-800 font-medium leading-relaxed">
+                    💡 <b>Rekomendasi Komo untuk Orang Tua:</b> Anak Anda menunjukkan minat dan bakat visual yang sangat baik hari ini. Yuk, ajak anak mencoba petualangan sains bersama Gaja besok sore untuk menyeimbangkan stimulasi kognitifnya!
+                </div>
+            </div>
+        </main>
+    </div>
+
     <div id="authModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white w-full max-w-md p-8 rounded-[32px] shadow-2xl border-4 border-[#2D6A4F] relative mx-4 transform scale-95 transition-transform duration-300" id="modalContainer">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-[#E63946] font-black">✕</button>
             
-            <!-- Tombol Tutup Modal -->
-            <button id="closeModalBtn" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-[#E63946] transition-colors font-black">
-                ✕
-            </button>
-
-            <!-- Karakter Komo Menyambut -->
             <div class="text-center -mt-16 mb-4">
-                <div class="w-20 h-20 bg-[#FFF3E0] rounded-full mx-auto flex items-center justify-center text-4xl border-4 border-[#F4A261] shadow-md animate-bounce">
-                    🦎
-                </div>
-                <h3 id="modalGreeting" class="text-lg font-black text-[#2D6A4F] mt-2 bg-[#FFF3E0] inline-block px-4 py-1 rounded-full border border-[#F4A261]">
-                    Halo! Yuk gabung bareng Komo!
-                </h3>
+                <div class="w-20 h-20 bg-[#FFF3E0] rounded-full mx-auto flex items-center justify-center text-4xl border-4 border-[#F4A261] shadow-md animate-bounce">🦎</div>
+                <h3 id="modalGreeting" class="text-lg font-black text-[#2D6A4F] mt-2 bg-[#FFF3E0] inline-block px-4 py-1 rounded-full border border-[#F4A261]">Halo! Yuk gabung bareng Komo!</h3>
             </div>
 
-            <!-- Tab Switcher (Daftar / Masuk) -->
             <div class="flex bg-gray-100 p-1.5 rounded-full mb-6 font-bold text-sm">
-                <button id="tabDaftar" class="w-1/2 py-2.5 rounded-full text-center transition-all bg-[#2D6A4F] text-white">
-                    Daftar Baru
-                </button>
-                <button id="tabMasuk" class="w-1/2 py-2.5 rounded-full text-center transition-all text-gray-500 hover:text-gray-800">
-                    Masuk Akun
-                </button>
+                <button id="tabDaftar" class="w-1/2 py-2.5 rounded-full text-center transition-all bg-[#2D6A4F] text-white">Daftar Baru</button>
+                <button id="tabMasuk" class="w-1/2 py-2.5 rounded-full text-center transition-all text-gray-500">Masuk Akun</button>
             </div>
 
-            <!-- FORM 1: PENDAFTARAN -->
             <form id="formDaftar" class="space-y-4">
                 <div>
                     <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Nama Panggilan Anak</label>
@@ -645,46 +424,35 @@
                         <input type="number" id="regUsia" min="3" max="12" placeholder="3-12" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-medium text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Kelas SD</label>
-                    <select id="regKelas" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-bold text-sm bg-white text-gray-700">
-                        <option value="Preschool">Preschool (PAUD)</option>
-                        <option value="TK">Taman Kanak-Kanak (TK)</option>
-                        <option value="1">Kelas 1 SD</option>
-                        <option value="2">Kelas 2 SD</option>
-                        <option value="3">Kelas 3 SD</option>
-                        <option value="4">Kelas 4 SD</option>
-                        <option value="5">Kelas 5 SD</option>
-                        <option value="6">Kelas 6 SD</option>
-                    </select>
+                        <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Kelas</label>
+                        <select id="regKelas" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-bold text-sm bg-white text-gray-700">
+                            <option value="Preschool">Preschool (PAUD)</option>
+                            <option value="TK">Taman Kanak-Kanak (TK)</option>
+                            <option value="1">Kelas 1 SD</option><option value="2">Kelas 2 SD</option><option value="3">Kelas 3 SD</option>
+                        </select>
                     </div>
                 </div>
                 <div>
                     <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Email Orang Tua</label>
                     <input type="email" id="regEmail" placeholder="bunda@email.com" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-medium text-sm">
                 </div>
-                <button type="submit" class="w-full bg-[#E63946] text-white font-black py-3 rounded-xl shadow-md border-b-4 border-[#b11e2b] hover:scale-[1.02] transition-transform text-center block">
-                    Mulai Petualangan Belajar! 🎉
-                </button>
+                <button type="submit" class="w-full bg-[#E63946] text-white font-black py-3 rounded-xl shadow-md border-b-4 border-[#b11e2b]">Mulai Petualangan Belajar! 🎉</button>
             </form>
 
-            <!-- FORM 2: LOGIN (Mula-mula disembunyikan) -->
             <form id="formMasuk" class="space-y-4 hidden">
                 <div>
                     <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Nama Panggilan Anak</label>
-                    <input type="text" id="loginNama" placeholder="Masukkan nama yang terdaftar" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-medium text-sm">
+                    <input type="text" id="loginNama" placeholder="Masukkan nama terdaftar" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-medium text-sm">
                 </div>
                 <div>
                     <label class="block text-xs font-black text-[#2D6A4F] uppercase mb-1">Email Orang Tua</label>
                     <input type="email" id="loginEmail" placeholder="bunda@email.com" class="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-[#2D6A4F] outline-none font-medium text-sm">
                 </div>
-                <button type="submit" class="w-full bg-[#457B9D] text-white font-black py-3 rounded-xl shadow-md border-b-4 border-[#2a4f66] hover:scale-[1.02] transition-transform text-center block">
-                    Masuk ke Pulau Belajar 🚀
-                </button>
+                <button type="submit" class="w-full bg-[#457B9D] text-white font-black py-3 rounded-xl shadow-md border-b-4 border-[#2a4f66]">Masuk ke Pulau Belajar 🚀</button>
             </form>
-
         </div>
-    </div>       
-    <!-- Custom JS -->
+    </div>      
+
     <script src="script.js"></script>
 </body>
 </html>
